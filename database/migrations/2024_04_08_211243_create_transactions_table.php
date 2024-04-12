@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('status');
             $table->decimal('price', 10, 2);
             $table->integer('credits');
-            $table->integer('session_id');
+            $table->string('session_id');
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('package_id')->constrained('packages');
             $table->timestamps();
