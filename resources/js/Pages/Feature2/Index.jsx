@@ -5,7 +5,7 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import { Head, useForm } from "@inertiajs/react";
 import Feature from "@/Components/Feature";
 
-export default function Index({ feature, answer }) {
+export default function Index({ auth, feature, answer }) {
     const { data, setData, post, reset, errors, processing } = useForm({
         number1: '',
         number2: '',
@@ -21,7 +21,7 @@ export default function Index({ feature, answer }) {
     }
 
     return (
-        <Feature feature={feature} answer={answer}>
+        <Feature auth={auth} feature={feature} answer={answer}>
             <form onSubmit={submit} className="p-8 grid grid-cols-2 gap-3">
                 <div>
                     <InputLabel htmlFor="number1" value="Number 1" />

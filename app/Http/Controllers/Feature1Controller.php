@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CalculateFeature1Request;
 use App\Http\Resources\FeatureResource;
 use App\Models\Feature;
 use App\Models\UsedFeature;
@@ -26,18 +27,15 @@ class Feature1Controller extends Controller
         ]);
     }
 
-    public function calculate(Request $request)
+    public function calculate(CalculateFeature1Request $request)
     {
         $user = $request->user();
 
-        if ($user->available_credits < $this->feature->requuired_credits) {
+        if ($user->available_credits < $this->feature->required_credits) {
             return back();
         }
 
-        $data = $request->validate([
-            'number1' => ['required', 'numeric'],
-            'number2' => ['required', 'numeric'],
-        ]);
+        $data = $request->validated();
 
         $number1 = $data['number1'];
         $number2 = $data['number2'];
@@ -47,7 +45,7 @@ class Feature1Controller extends Controller
         UsedFeature::create([
             'feature_id' => $this->feature->id,
             'user_id' => $user->id,
-            'credits' => $this->feature->requuired_credits,
+            'credits' => $this->feature->required_credits,
             'data' => $data,
         ]);
 

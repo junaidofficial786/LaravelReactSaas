@@ -1,15 +1,15 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { usePage, Head, Link } from '@inertiajs/react';
 
-export default function Feature({ feature, answer, children }) {
-    const { auth } = usePage().props; // get auth from page props
+export default function Feature({ auth, feature, answer, children }) {
+    // const { auth } = usePage().props; // another way to get information of authenticated user from props
     const availableCredits = auth.user.available_credits;
     return (
         <AuthenticatedLayout
             user={auth.user}
             header={
-                <h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                    {feature.title}
+                <h2 className="font-semibold text-3xl text-gray-800 dark:text-gray-200 leading-tight">
+                    {feature.name}
                 </h2>
             }
         >
@@ -35,10 +35,8 @@ export default function Feature({ feature, answer, children }) {
                             </div>
                         )}
                         <div>
-                            <p className="text-3xl text-white p-4 text-center">{feature.name}</p>
-                            <div className="flex text-white gap-10 justify-center italic">
-                                <p>Required Credits: {feature.required_credits}</p>
-                                <p>Available Credits: {availableCredits}</p>
+                            <div className="p-4 flex text-white gap-10 justify-center italic">
+                                <p>Required Credits: {feature.required_credits}</p> 
                             </div>
                         </div>
                         {children}
