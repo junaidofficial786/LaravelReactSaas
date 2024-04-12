@@ -42,7 +42,7 @@ class Feature1Controller extends Controller
         $number1 = $data['number1'];
         $number2 = $data['number2'];
 
-        $user->decreaseCredits($this->feature->requuired_credits);
+        $user->decreaseCredits($this->feature->required_credits);
 
         UsedFeature::create([
             'feature_id' => $this->feature->id,

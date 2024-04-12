@@ -10,4 +10,5 @@ class UserObserver
     {
         $user->available_credits = 10;
     }
+
 }
