@@ -8,6 +8,7 @@ use App\Models\Feature;
 use App\Models\Package;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 use function GuzzleHttp\default_ca_bundle;
 
@@ -98,7 +99,7 @@ class CreditController extends Controller
                 }
                 //handle other event types
             default:
-                echo "Received unknown type " . $event->type;
+                Log::info("Received unknown type " . $event->type);
         }
 
         return response("", 200);
