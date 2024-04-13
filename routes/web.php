@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CreditController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Feature1Controller;
 use App\Http\Controllers\Feature2Controller;
 use App\Http\Controllers\ProfileController;
@@ -20,9 +21,7 @@ Route::get('/', function () {
 
 Route::post('/buy-credits/webhook', [CreditController::class, 'webhook'])->name('credit.webhook');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
