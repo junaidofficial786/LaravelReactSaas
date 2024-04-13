@@ -14,7 +14,7 @@ class DashboardController extends Controller
             ->with(['feature'])
             ->where("user_id", auth()->id())
             ->latest()
-            ->paginate(3)
+            ->paginate(5)
             ->onEachSide(1);
 
         return inertia("Dashboard", [
