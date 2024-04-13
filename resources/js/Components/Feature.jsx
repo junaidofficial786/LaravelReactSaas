@@ -35,7 +35,7 @@ export default function Feature({ auth, feature, answer, children }) {
                             </div>
                         )}
                         <div>
-                            <div className="p-4 flex text-white gap-10 justify-center italic">
+                            <div className="p-4 flex dark:text-white gap-10 justify-center italic">
                                 <p>Required Credits: {feature.required_credits}</p> 
                             </div>
                         </div>

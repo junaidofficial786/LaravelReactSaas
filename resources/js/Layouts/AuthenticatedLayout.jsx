@@ -34,10 +34,10 @@ export default function Authenticated({ user, header, children }) {
                         </div>
 
                         <div className="hidden sm:flex sm:items-center sm:ms-6 gap-3">
-                            <span className='text-white flex gap-3'>
+                            <span className='dark:text-white flex gap-3'>
                                 <img src='/images/coin.png' className='w-[20px]' alt='coin image' />
-                                <span className='text-2xl '>{user.available_credits} Credits</span>
-                                <Link href={route('credit.index')} className='text-white py-1 px-3  rounded border transition-colors hover:text-gray-800 hover:bg-white'>
+                                <span className='text-2xl'>{user.available_credits} Credits</span>
+                                <Link href={route('credit.index')} className='dark:text-white py-1 px-3  rounded border transition-colors dark:hover:text-gray-800 hover:bg-white'>
                                     Get More Coins
                                 </Link>
                             </span>
